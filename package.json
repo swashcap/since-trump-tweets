@@ -1,0 +1,32 @@
+{
+  "name": "demotron",
+  "version": "1.0.0",
+  "description": "A sample Electron application.",
+  "main": "main/index.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/swashcap/demotron.git"
+  },
+  "keywords": [
+    "electron"
+  ],
+  "author": "Cory Reed <swashcap@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/swashcap/demotron/issues"
+  },
+  "homepage": "https://github.com/swashcap/demotron#readme",
+  "devDependencies": {
+    "electron": "^1.6.7",
+    "spectron": "^3.7.0"
+  },
+  "dependencies": {
+    "config": "^1.26.1",
+    "jquery": "^3.2.1",
+    "moment": "^2.18.1",
+    "twitter": "^1.7.0"
+  }
+}

@@ -1,0 +1,164 @@
+* {
+  box-sizing: border-box;
+}
+html {
+  background: #000;
+  color: #fff;
+  font-family: 'Futura-CondensedExtraBold', 'Avenir Next Condensed', sans-serif;
+  line-height: 1.4;
+}
+@media (min-width: 400px) {
+  html {
+    font-size: 120%;
+  }
+}
+@media (min-width: 600px) {
+  html {
+    font-size: 150%;
+  }
+}
+@media (min-width: 600px) {
+  html {
+    font-size: 150%;
+  }
+}
+
+html,
+body {
+  margin: 0;
+}
+
+/**
+ * Alert.
+ */
+.alert {
+}
+
+/**
+ * Card.
+ */
+.card {
+  background: royalblue;
+}
+.card-error {
+  background: crimson;
+}
+.card-warning {
+  background: darkorange;
+}
+.card-notice {
+  background: gold;
+  color: black;
+}
+
+/**
+ * Header.
+ */
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 1rem;
+  position: relative;
+}
+.header:after {
+  --width: .55em;
+
+  border-color: transparent;
+  border-top-color: inherit;
+  border-style: solid;
+  border-width: var(--width) var(--width) 0 var(--width);
+  bottom: var(--width);
+  content: '';
+  display: inline-block;
+  left: 50%;
+  margin-left: calc(-1 * var(--width));
+  opacity: .4;
+  position: absolute;
+}
+.header h1 {
+  font-size: 250%;
+  letter-spacing: .05ex;
+  line-height: 1.1;
+  margin: 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+.header h1 em,
+.header h1 span {
+  display: block;
+}
+.header h1 em {
+  font-size: 200%;
+  font-style: normal;
+  line-height: 1.5;
+  padding-bottom: .2em;
+}
+.header h1 strong {
+  font-size: 150%;
+  line-height: 1;
+  position: relative;
+  top: .25ex;
+}
+
+/**
+ * Tweet.
+ */
+.tweet {
+  --avatar-width: 5em;
+  --horizontal-space: 2em;
+  --vertical-space: 1.5em;
+
+  letter-spacing: .1ex;
+  text-transform: uppercase;
+}
+.tweet a {
+  color: inherit;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 32em;
+  padding:
+    var(--vertical-space)
+    var(--horizontal-space)
+    var(--vertical-space)
+    calc(1.5 * var(--horizontal-space) + var(--avatar-width));
+  position: relative;
+  text-decoration: none;
+}
+.tweet a:before {
+  background-image: url(icon-light.png);
+  background-size: contain;
+  content: '';
+  display: block;
+  height: var(--avatar-width);
+  left: var(--horizontal-space);
+  position: absolute;
+  top: var(--vertical-space);
+  width: var(--avatar-width);
+}
+
+.card-notice .tweet a:before {
+  background-image: url(icon-dark.png);
+}
+
+.tweet p {
+  margin: 0 0 1em 0;
+}
+.tweet ul {
+  list-style: none;
+  margin: 0;
+  opacity: .5;
+  padding: 0;
+}
+.tweet li {
+  display: inline;
+}
+
+.tweet a:active,
+.tweet a:focus,
+.tweet a:hover {
+  text-decoration: underline;
+}
+
