@@ -7,6 +7,7 @@ const {
 const $ = require('jquery')
 const Twitter = require('twitter')
 const card = require('./card.js')
+const { shell } = require('electron')
 
 const $root = $('#root')
 const client = new Twitter({
@@ -14,6 +15,19 @@ const client = new Twitter({
   access_token_secret,
   consumer_key,
   consumer_secret
+})
+
+/**
+ * Open all links in default browser
+ * {@link https://electron.atom.io/docs/api/shell/#shellopenexternalurl-options-callback}
+ */
+$root.click((event) => {
+  const $anchor = $(event.target).parent('a')
+
+  if ($anchor.length) {
+    event.preventDefault()
+    shell.openExternal($anchor.attr('href'))
+  }
 })
 
 const addErrorMessage = message => $root.html(
