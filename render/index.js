@@ -6,7 +6,7 @@ const {
 } = require('config')
 const $ = require('jquery')
 const Twitter = require('twitter')
-const demotronCard = require('./demotron-card.js')
+const card = require('./card.js')
 
 const $root = $('#root')
 const client = new Twitter({
@@ -20,7 +20,7 @@ const addErrorMessage = message => $root.html(
   `<div class="alert alert-danger">${message}</div>`
 )
 
-const addTweet = tweet => $root.html(demotronCard(tweet))
+const addTweet = tweet => $root.html(card(tweet))
 
 const fetchTweet = () => new Promise((resolve, reject) => {
   client.get(

@@ -6,7 +6,7 @@ const sinon = require('sinon')
 const tape = require('tape')
 const Twitter = require('twitter')
 
-const demotronCard = require('../render/demotron-card.js')
+const card = require('../render/card.js')
 const { getProps } = require('./helpers.js')
 
 let jQuery
@@ -40,11 +40,7 @@ tape('render :: adds tweet', (t) => {
   const props = getProps(moment().subtract(1, 'day'))
   render.addTweet(props)
 
-  t.equal(
-    jQuery('#root').html(),
-    demotronCard(props),
-    'adds card component'
-  )
+  t.equal(jQuery('#root').html(), card(props), 'adds card component')
 
   jQuery('#root').html('') // cleanup
   t.end()

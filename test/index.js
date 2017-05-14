@@ -1,4 +1,4 @@
 'use strict'
 
-require('./demotron-card.js')
+require('./card.js')
 require('./render.js')

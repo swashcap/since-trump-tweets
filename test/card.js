@@ -4,12 +4,12 @@ const cheerio = require('cheerio')
 const moment = require('moment')
 const tape = require('tape')
 
-const demotronCard = require('../render/demotron-card.js')
+const card = require('../render/card.js')
 const { getProps } = require('./helpers.js')
 
 tape('sets date string', (t) => {
   const getDateText = createdAt =>
-    cheerio.load(demotronCard(getProps(createdAt)))('h1 em').text()
+    cheerio.load(card(getProps(createdAt)))('h1 em').text()
 
   t.equal(
     getDateText(moment().subtract(1, 'minute')),
@@ -47,7 +47,7 @@ tape('sets date string', (t) => {
 
 tape('passes props to component', (t) => {
   const props = getProps(moment().subtract(1, 'day'))
-  const html = demotronCard(props)
+  const html = card(props)
   const $ = cheerio.load(html)
 
   t.equal(
@@ -70,7 +70,7 @@ tape('passes props to component', (t) => {
 
 tape('sets modifier class names', (t) => {
   const getCardEl = offset =>
-    cheerio.load(demotronCard(getProps(offset)))('.card')
+    cheerio.load(card(getProps(offset)))('.card')
 
   const $error = getCardEl(moment().subtract(36, 'minutes'))
   const $warning = getCardEl(moment().subtract(1, 'day'))
