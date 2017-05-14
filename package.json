@@ -5,7 +5,7 @@
   "main": "main/index.js",
   "scripts": {
     "start": "electron .",
-    "test": "standard '{main,render}/**/*.js'"
+    "test": "standard '{main,render}/**/*.js' && node test/*.js"
   },
   "repository": {
     "type": "git",
@@ -21,9 +21,11 @@
   },
   "homepage": "https://github.com/swashcap/demotron#readme",
   "devDependencies": {
+    "cheerio": "^0.22.0",
     "electron": "^1.6.7",
     "spectron": "^3.7.0",
-    "standard": "^10.0.2"
+    "standard": "^10.0.2",
+    "tape": "^4.6.3"
   },
   "dependencies": {
     "config": "^1.26.1",

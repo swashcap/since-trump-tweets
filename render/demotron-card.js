@@ -13,23 +13,41 @@ const demotronCard = ({
   retweet_count: retweetCount,
   text
 }) => {
-  const date = moment(createdAt, 'ddd MMM DD HH:mm:ss ZZ YYYY')
-  const daysSince = date.diff(moment(), 'days')
-  let className = 'card'
+  const createdAtDate = moment(createdAt, 'ddd MMM DD HH:mm:ss ZZ YYYY')
+  const now = moment()
+  const daysSince = now.diff(createdAtDate, 'days')
+  let className = ''
+  let offsetLabel
+  let offsetNumber
 
   if (daysSince < 1) {
-    className += ' card-error'
-  } else if (daysSince < 2) {
-    className += ' card-warning'
-  } else if (daysSince < 3) {
-    className += ' card-notice'
+    className = 'card-error'
+
+    const hoursSince = now.diff(createdAtDate, 'hours')
+
+    if (hoursSince >= 1) {
+      offsetNumber = hoursSince
+      offsetLabel = hoursSince === 1 ? 'hour' : 'hours'
+    } else {
+      offsetNumber = now.diff(createdAtDate, 'minutes')
+      offsetLabel = offsetNumber === 1 ? 'minute' : 'minutes'
+    }
+  } else {
+    offsetNumber = daysSince
+    offsetLabel = daysSince === 1 ? 'day' : 'days'
+
+    if (daysSince < 2) {
+      className = 'card-warning'
+    } else if (daysSince < 3) {
+      className = 'card-notice'
+    }
   }
 
-  return `<div class=${className}>
+  return `<div class="card ${className}">
     <header class="header">
       <h1>
         It’s been
-        <em><strong>0</strong> days</em>
+        <em><strong>${offsetNumber}</strong> ${offsetLabel}</em>
         since Trump
         <span>tweeted</span>
       </h1>
