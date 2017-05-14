@@ -16,34 +16,48 @@ const client = new Twitter({
   consumer_secret
 })
 
-function addErrorMessage (message) {
-  $root.html(`<div class="alert alert-danger">${message}</div>`)
-}
-
-function addTweet (tweet) {
-  $root.html(demotronCard(tweet))
-}
-
-client.get(
-  'statuses/user_timeline',
-  {
-    count: 1,
-    include_rts: false,
-    screen_name: 'realDonaldTrump'
-  },
-  (error, tweets) => {
-    if (error) {
-      console.error(error)
-
-      if (error instanceof Error) {
-        addErrorMessage(error.message)
-      } else if (Array.isArray(error)) {
-        addErrorMessage(error[0].message)
-      }
-    } else if (!tweets.length) {
-      addErrorMessage('Couldn\'t fetch latest tweet')
-    } else {
-      addTweet(tweets[0])
-    }
-  }
+const addErrorMessage = message => $root.html(
+  `<div class="alert alert-danger">${message}</div>`
 )
+
+const addTweet = tweet => $root.html(demotronCard(tweet))
+
+const fetchTweet = () => new Promise((resolve, reject) => {
+  client.get(
+    'statuses/user_timeline',
+    {
+      count: 1,
+      include_rts: false,
+      screen_name: 'realDonaldTrump'
+    },
+    (error, tweets) => {
+      if (error) {
+        if (error instanceof Error) {
+          reject(error)
+        } else if (Array.isArray(error)) {
+          reject(error[0])
+        }
+      } else if (!tweets.length) {
+        reject(new Error('Couldn\'t fetch latest tweet'))
+      } else {
+        resolve(tweets[0])
+      }
+    }
+  )
+})
+
+const init = () => {
+  fetchTweet()
+    .then(addTweet)
+    .catch((error) => {
+      console.error(error)
+      addErrorMessage(error.message)
+    })
+}
+
+module.exports = {
+  addErrorMessage,
+  addTweet,
+  fetchTweet,
+  init
+}

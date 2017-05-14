@@ -5,18 +5,7 @@ const moment = require('moment')
 const tape = require('tape')
 
 const demotronCard = require('../render/demotron-card.js')
-
-const getProps = (createdAt) => ({
-  created_at: createdAt.format('ddd MMM DD HH:mm:ss ZZ YYYY'),
-  entities: {
-    urls: [{
-      expanded_url: 'https://test.net',
-    }]
-  },
-  favorite_count: 1337,
-  retweet_count: 80085,
-  text: 'Lorem ipsum dolor sit amet...'
-})
+const { getProps } = require('./helpers.js')
 
 tape('sets date string', (t) => {
   const getDateText = createdAt =>
@@ -99,4 +88,3 @@ tape('sets modifier class names', (t) => {
 
   t.end()
 })
-
