@@ -3,7 +3,7 @@ const {
   access_token_secret,
   consumer_key,
   consumer_secret
-} = require('config')
+} = require('../config/twitter.json')
 const $ = require('jquery')
 const Twitter = require('twitter')
 const card = require('./card.js')

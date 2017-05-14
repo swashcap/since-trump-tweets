@@ -30,7 +30,6 @@
     "tape": "^4.6.3"
   },
   "dependencies": {
-    "config": "^1.26.1",
     "jquery": "^3.2.1",
     "moment": "^2.18.1",
     "twitter": "^1.7.0"

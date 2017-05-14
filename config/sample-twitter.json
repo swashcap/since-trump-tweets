@@ -1,3 +1,4 @@
+// Add your Twitter API credentials below and rename file to 'twitter.json'
 {
   "access_token_key": "",
   "access_token_secret": "",
