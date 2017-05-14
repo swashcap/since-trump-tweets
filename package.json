@@ -4,8 +4,8 @@
   "description": "A sample Electron application.",
   "main": "main/index.js",
   "scripts": {
-    "build": "npm run clean && mkdir dist && electron-packager . --icon icons/logo --out dist",
-    "clean": "rm -rf dist",
+    "build": "npm run clean && mkdirp dist && electron-packager . --icon icons/logo --out dist",
+    "clean": "rimraf dist",
     "start": "electron .",
     "test": "standard '{main,render,test}/**/*.js' && node test/index.js"
   },
@@ -27,6 +27,8 @@
     "electron": "1.6.7",
     "electron-packager": "^8.7.0",
     "jsdom": "^10.1.0",
+    "mkdirp": "^0.5.1",
+    "rimraf": "^2.6.1",
     "sinon": "^2.2.0",
     "spectron": "^3.7.0",
     "standard": "^10.0.2",
