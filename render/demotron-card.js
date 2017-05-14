@@ -1,28 +1,28 @@
-'use strict';
+'use strict'
 
-const moment = require('moment');
+const moment = require('moment')
 
 const demotronCard = ({
-  created_at,
+  created_at: createdAt,
   entities: {
     urls: [{
-      expanded_url,
-    }],
+      expanded_url: expandedUrl
+    }]
   },
-  favorite_count,
-  retweet_count,
-  text,
+  favorite_count: favoriteCount,
+  retweet_count: retweetCount,
+  text
 }) => {
-  const createdAt = moment(created_at, 'ddd MMM DD HH:mm:ss ZZ YYYY');
-  const daysSince = createdAt.diff(moment(), 'days');
-  let className = 'card'; 
+  const date = moment(createdAt, 'ddd MMM DD HH:mm:ss ZZ YYYY')
+  const daysSince = date.diff(moment(), 'days')
+  let className = 'card'
 
   if (daysSince < 1) {
-    className += ' card-error';
+    className += ' card-error'
   } else if (daysSince < 2) {
-    className += ' card-warning';
+    className += ' card-warning'
   } else if (daysSince < 3) {
-    className += ' card-notice';
+    className += ' card-notice'
   }
 
   return `<div class=${className}>
@@ -35,16 +35,15 @@ const demotronCard = ({
       </h1>
     </header>
     <article class="tweet">
-      <a href="${expanded_url}" rel="bookmark" title="View on Twitter">
+      <a href="${expandedUrl}" rel="bookmark" title="View on Twitter">
         <p>${text}</p>
         <ul>
-          <li>Retweets: ${retweet_count}</li>
-          <li>Likes: ${favorite_count}</li>
+          <li>Retweets: ${retweetCount}</li>
+          <li>Likes: ${favoriteCount}</li>
         </ul>
       </a>
     </article>
-  </div>`;
-};
+  </div>`
+}
 
-module.exports = demotronCard;
-
+module.exports = demotronCard

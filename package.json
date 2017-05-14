@@ -4,7 +4,8 @@
   "description": "A sample Electron application.",
   "main": "main/index.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "test": "standard '{main,render}/**/*.js'"
   },
   "repository": {
     "type": "git",
@@ -21,7 +22,8 @@
   "homepage": "https://github.com/swashcap/demotron#readme",
   "devDependencies": {
     "electron": "^1.6.7",
-    "spectron": "^3.7.0"
+    "spectron": "^3.7.0",
+    "standard": "^10.0.2"
   },
   "dependencies": {
     "config": "^1.26.1",
