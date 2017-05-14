@@ -1,7 +1,7 @@
 {
-  "name": "demotron",
+  "name": "since-trump-tweets",
   "version": "1.0.0",
-  "description": "A sample Electron application.",
+  "description": "A sample Electron application featuring Trump's latest tweet.",
   "main": "main/index.js",
   "scripts": {
     "build": "npm run clean && mkdirp dist && electron-packager . --icon icons/logo --out dist",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/swashcap/demotron.git"
+    "url": "git+https://github.com/swashcap/since-trump-tweets.git"
   },
   "keywords": [
     "electron"
@@ -19,9 +19,9 @@
   "author": "Cory Reed <swashcap@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/swashcap/demotron/issues"
+    "url": "https://github.com/swashcap/since-trump-tweets/issues"
   },
-  "homepage": "https://github.com/swashcap/demotron#readme",
+  "homepage": "https://github.com/swashcap/since-trump-tweets#readme",
   "devDependencies": {
     "cheerio": "^0.22.0",
     "electron": "1.6.7",
@@ -40,5 +40,5 @@
     "twitter": "^1.7.0"
   },
   "private": true,
-  "productName": "demotron"
+  "productName": "Since Trump Tweets"
 }

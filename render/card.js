@@ -2,7 +2,7 @@
 
 const moment = require('moment')
 
-const demotronCard = ({
+const card = ({
   created_at: createdAt,
   entities: {
     urls: [{
@@ -64,4 +64,4 @@ const demotronCard = ({
   </div>`
 }
 
-module.exports = demotronCard
+module.exports = card
