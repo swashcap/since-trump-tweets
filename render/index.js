@@ -55,6 +55,11 @@ const init = () => {
     })
 }
 
+// Boot if this is the main entry point
+if (require.main === module) {
+  init()
+}
+
 module.exports = {
   addErrorMessage,
   addTweet,

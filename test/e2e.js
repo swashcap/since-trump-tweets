@@ -16,11 +16,21 @@ tape('e2e :: setup', (t) => {
 })
 
 tape('e2e :: shows a window', (t) => {
-  t.plan(1)
+  t.plan(2)
 
   app.client.getWindowCount()
     .then((count) => {
       t.equal(count, 1, 'shows a window')
+
+      return app.client.waitForText('#root', 3000)
+    })
+    .then(() => app.client.getText('#root'))
+    .then((text) => {
+      // TODO: Improve tweet check
+      t.ok(
+        text.toLowerCase().includes('since trump'),
+        'adds tweet to window'
+      )
     })
     .catch(t.end)
 })
