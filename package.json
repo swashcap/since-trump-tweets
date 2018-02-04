@@ -24,8 +24,8 @@
   "homepage": "https://github.com/swashcap/since-trump-tweets#readme",
   "devDependencies": {
     "cheerio": "^0.22.0",
-    "electron": "1.6.7",
-    "electron-packager": "^8.7.0",
+    "electron": "1.7.12",
+    "electron-packager": "^10.1.2",
     "jsdom": "^10.1.0",
     "mkdirp": "^0.5.1",
     "rimraf": "^2.6.1",
